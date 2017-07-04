@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         dataset.setColors(ColorTemplate.COLORFUL_COLORS); //
         dataset.setDrawCubic(true);
         dataset.setDrawFilled(true);
+        dataset.setValueTextColor(Color.WHITE);
         dataset.setColor(Color.RED);
         dataset.setFillColor(Color.BLUE);
         dataset.setCircleColor(Color.YELLOW);
@@ -75,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             // action with ID action_refresh was selected
             case R.id.action_refresh:
-                Toast.makeText(this, "Refresh selected", Toast.LENGTH_SHORT)
+                Toast.makeText(this, "Refresh  selected", Toast.LENGTH_SHORT)
                         .show();
                 break;
             // action with ID action_settings was selected
