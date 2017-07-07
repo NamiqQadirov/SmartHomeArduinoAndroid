@@ -10,15 +10,15 @@
         android:id="@+id/chart"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_below="@+id/textView7" />
+        android:layout_below="@+id/volt_data" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/voltage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView6"
-        android:layout_alignStart="@+id/textView6"
-        android:layout_below="@+id/textView4"
+        android:layout_alignEnd="@+id/temperature"
+        android:layout_alignStart="@+id/temperature"
+        android:layout_below="@+id/hum_data"
         android:layout_marginTop="13dp"
         android:background="@drawable/border"
         android:text="Voltage"
@@ -27,11 +27,11 @@
         tools:gravity="center" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/temperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView2"
-        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignBaseline="@+id/humidity"
+        android:layout_alignBottom="@+id/humidity"
         android:layout_alignParentStart="true"
         android:layout_marginStart="72dp"
         android:background="@drawable/border"
@@ -40,7 +40,7 @@
         android:textColor="#f40909" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/humidity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -53,34 +53,34 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Button" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/wattage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView"
-        android:layout_alignBottom="@+id/textView"
-        android:layout_alignStart="@+id/textView2"
+        android:layout_alignBaseline="@+id/voltage"
+        android:layout_alignBottom="@+id/voltage"
+        android:layout_alignStart="@+id/humidity"
         android:background="@drawable/border"
         android:text="Wattage"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
         android:textColor="#f40909" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/temp_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#cecdcd"
         android:text=" ???"
         android:background="@drawable/border"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        android:layout_below="@+id/textView6"
-        android:layout_alignStart="@+id/textView7" />
+        android:layout_below="@+id/temperature"
+        android:layout_alignStart="@+id/volt_data" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/volt_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView"
-        android:layout_below="@+id/textView"
+        android:layout_alignStart="@+id/voltage"
+        android:layout_below="@+id/voltage"
         android:layout_marginStart="37dp"
         android:background="@drawable/border"
         android:text=" ???"
@@ -88,7 +88,7 @@
         android:textColor="#cecdcd" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/hum_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#cecdcd"
@@ -96,15 +96,15 @@
 
         android:text=" ???"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        android:layout_below="@+id/textView2"
-        android:layout_alignStart="@+id/textView9" />
+        android:layout_below="@+id/humidity"
+        android:layout_alignStart="@+id/watt_data" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/watt_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView2"
-        android:layout_below="@+id/textView3"
+        android:layout_alignStart="@+id/humidity"
+        android:layout_below="@+id/temp_data"
 
         android:layout_marginStart="18dp"
         android:layout_marginTop="37dp"
@@ -114,69 +114,69 @@
         android:textColor="#cecdcd" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/open_door"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Open Door"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/textView7" />
+        android:layout_toEndOf="@+id/volt_data" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/set_light"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SET"
         android:layout_marginBottom="11dp"
-        android:layout_above="@+id/button5"
+        android:layout_above="@+id/set_curtain"
         android:layout_alignParentEnd="true"
         style="@style/Widget.AppCompat.Button.Colored"/>
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/set_curtain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button2"
+        android:layout_above="@+id/open_door"
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="7dp"
         android:text="SET"
         style="@style/Widget.AppCompat.Button.Colored"/>
 
     <SeekBar
-        android:id="@+id/seekBar4"
+        android:id="@+id/light_seek"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button4"
+        android:layout_alignBottom="@+id/set_light"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="17dp"
         android:layout_marginStart="16dp"
-        android:layout_toStartOf="@+id/textView4" />
+        android:layout_toStartOf="@+id/hum_data" />
 
     <SeekBar
-        android:id="@+id/seekBar5"
+        android:id="@+id/curtain_seek"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button5"
-        android:layout_alignStart="@+id/seekBar4"
+        android:layout_alignBottom="@+id/set_curtain"
+        android:layout_alignStart="@+id/light_seek"
         android:layout_marginBottom="17dp"
-        android:layout_alignEnd="@+id/seekBar4" />
+        android:layout_alignEnd="@+id/light_seek" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/lightening"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/seekBar4"
-        android:layout_toStartOf="@+id/textView7"
+        android:layout_above="@+id/light_seek"
+        android:layout_toStartOf="@+id/volt_data"
         android:text="Lightening"
         android:textColor="#FFFFFF"/>
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/curtain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/seekBar5"
-        android:layout_alignStart="@+id/textView10"
+        android:layout_above="@+id/curtain_seek"
+        android:layout_alignStart="@+id/lightening"
         android:text="Curtain"
-        android:textColor="#FFFFFF"/>
+        android:textColor="#FFFFFF" />
 
 </RelativeLayout>
