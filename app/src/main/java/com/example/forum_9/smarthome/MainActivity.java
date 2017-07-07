@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         curtainSeek = (SeekBar) findViewById(R.id.curtain_seek);
         openDoor = (Button) findViewById(R.id.open_door);
         setLight = (Button) findViewById(R.id.set_light);
+        setCurtain = (Button) findViewById(R.id.set_curtain);
 
         inputBluetooth = new Handler() {
             public void handleMessage(android.os.Message msg) {
@@ -87,6 +89,18 @@ public class MainActivity extends AppCompatActivity {
         };
         btAdapter = BluetoothAdapter.getDefaultAdapter();       // get Bluetooth adapter
         checkBTState();
+        setLight.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                sendThread.write(String.valueOf(lightSeek.getProgress())+"q");    // Send "0" via Bluetooth
+                Toast.makeText(getBaseContext(),  String.valueOf(lightSeek.getProgress())+"q", Toast.LENGTH_SHORT).show();
+            }
+        });
+        setCurtain.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                sendThread.write(String.valueOf(curtainSeek.getProgress())+"w");    // Send "0" via Bluetooth
+                Toast.makeText(getBaseContext(),  String.valueOf(curtainSeek.getProgress())+"w", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
         ArrayList<Entry> entries = new ArrayList<>();
@@ -126,6 +140,16 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        try {
+            //Don't leave Bluetooth sockets open when leaving activity
+            btSocket.close();
+        } catch (IOException e2) {
+            //insert code to deal with this
+        }
+    }
 
     //Checks that the Android device Bluetooth is available and prompts to be turned on if off
     private void checkBTState() {
@@ -208,6 +232,7 @@ public class MainActivity extends AppCompatActivity {
 
         return true;
     }
+
     //create new class for connect thread
     private class SendThread extends Thread {
         private final InputStream mmInStream;
@@ -222,7 +247,8 @@ public class MainActivity extends AppCompatActivity {
                 //Create I/O streams for connection
                 tmpIn = socket.getInputStream();
                 tmpOut = socket.getOutputStream();
-            } catch (IOException e) { }
+            } catch (IOException e) {
+            }
 
             mmInStream = tmpIn;
             mmOutStream = tmpOut;
@@ -236,7 +262,7 @@ public class MainActivity extends AppCompatActivity {
             // Keep looping to listen for received messages
             while (true) {
                 try {
-                    bytes = mmInStream.read(buffer);        	//read bytes from input buffer
+                    bytes = mmInStream.read(buffer);            //read bytes from input buffer
                     String readMessage = new String(buffer, 0, bytes);
                     // Send the obtained bytes to the UI Activity via handler
                     inputBluetooth.obtainMessage(handlerState, bytes, -1, readMessage).sendToTarget();
@@ -245,6 +271,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+
         //write method
         public void write(String input) {
             byte[] msgBuffer = input.getBytes();           //converts entered String into bytes

@@ -1,6 +1,7 @@
 package com.example.forum_9.smarthome;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Set;
 
 public class ConnectBluetooth extends AppCompatActivity {
+    ProgressDialog progress;
     private BluetoothAdapter myBluetooth = null;
     private Set<BluetoothDevice> pairedDevices;
     public static String EXTRA_ADDRESS = "device_address";
@@ -58,6 +60,7 @@ ListView listView;
     private AdapterView.OnItemClickListener mDeviceClickListener = new AdapterView.OnItemClickListener() {
         public void onItemClick(AdapterView<?> av, View v, int arg2, long arg3) {
 
+            progress = ProgressDialog.show(ConnectBluetooth.this, "Connecting...", "Please wait!!!");  //show a progress dialog
 
             String info = ((TextView) v).getText().toString();
             String address = info.substring(info.length() - 17);
@@ -66,6 +69,8 @@ ListView listView;
             Intent i = new Intent(ConnectBluetooth.this, MainActivity.class);
             i.putExtra(EXTRA_ADDRESS, address);
             startActivity(i);
+            progress.dismiss();
+
         }
     };
     private void checkBTState() {

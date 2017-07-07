@@ -150,16 +150,18 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="17dp"
         android:layout_marginStart="16dp"
-        android:layout_toStartOf="@+id/hum_data" />
+        android:layout_toStartOf="@+id/hum_data"
+        android:max="255" />
 
     <SeekBar
         android:id="@+id/curtain_seek"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/set_curtain"
+        android:layout_alignEnd="@+id/light_seek"
         android:layout_alignStart="@+id/light_seek"
         android:layout_marginBottom="17dp"
-        android:layout_alignEnd="@+id/light_seek" />
+        android:max="255" />
 
     <TextView
         android:id="@+id/lightening"
