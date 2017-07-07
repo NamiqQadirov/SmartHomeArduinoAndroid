@@ -22,7 +22,6 @@ public class ConnectBluetooth extends AppCompatActivity {
     private Set<BluetoothDevice> pairedDevices;
     public static String EXTRA_ADDRESS = "device_address";
 ListView listView;
-    TextView notHavePaired=(TextView)findViewById(R.id.not_have_paired);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +46,6 @@ ListView listView;
         else
         {
             Toast.makeText(getApplicationContext(), "No Paired Bluetooth Devices Found.", Toast.LENGTH_LONG).show();
-            notHavePaired.setVisibility(View.VISIBLE);
         }
 
         final ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, list);
