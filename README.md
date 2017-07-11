@@ -2,10 +2,12 @@
 SmartHome is a Arduino based Smart Home project.
 
 This project can manage arduino via bluetooth. i use HC-05 bluetooth module.
+
 ![alt tag](https://github.com/NamiqQadirov/SmartHome/blob/master/images/Screenshot_2017-07-07-17-16-42.png)
 ![alt tag](https://github.com/NamiqQadirov/SmartHome/blob/master/images/Screenshot_2017-07-07-17-16-49.png)
 ![alt tag](https://github.com/NamiqQadirov/SmartHome/blob/master/images/Screenshot_2017-07-11-18-18-18.png)
 ![alt tag](https://github.com/NamiqQadirov/SmartHome/blob/master/images/20170711_181733.jpg)
+
 You can find Arduino software file under /arduinoCodes  folder.
 Connection is as following.
 
