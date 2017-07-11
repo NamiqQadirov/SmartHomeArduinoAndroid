@@ -56,7 +56,7 @@ void loop() {
 void dataSend() {
   float sensorValue = analogRead(analogInPin0);
   float voltage = ((sensorValue / 1023) * 5);
-  Serial.print("Voltage : ");
+  Serial.print("Voltage Data: ");
   Serial.print(voltage);
   float h = dht.readHumidity();
   float t = dht.readTemperature();
