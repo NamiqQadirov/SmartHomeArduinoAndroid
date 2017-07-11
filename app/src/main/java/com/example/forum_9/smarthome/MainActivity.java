@@ -91,17 +91,22 @@ public class MainActivity extends AppCompatActivity {
         checkBTState();
         setLight.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                sendThread.write(String.valueOf(lightSeek.getProgress())+"q");    // Send "0" via Bluetooth
-                Toast.makeText(getBaseContext(),  String.valueOf(lightSeek.getProgress())+"q", Toast.LENGTH_SHORT).show();
+                sendThread.write(String.valueOf(lightSeek.getProgress())+"light");    // Send "0" via Bluetooth
+                Toast.makeText(getBaseContext(),  String.valueOf(lightSeek.getProgress())+"light", Toast.LENGTH_SHORT).show();
             }
         });
         setCurtain.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                sendThread.write(String.valueOf(curtainSeek.getProgress())+"w");    // Send "0" via Bluetooth
-                Toast.makeText(getBaseContext(),  String.valueOf(curtainSeek.getProgress())+"w", Toast.LENGTH_SHORT).show();
+                sendThread.write(String.valueOf(curtainSeek.getProgress())+"servo");    // Send "0" via Bluetooth
+                Toast.makeText(getBaseContext(),  String.valueOf(curtainSeek.getProgress())+"servo", Toast.LENGTH_SHORT).show();
             }
         });
-
+        openDoor.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                sendThread.write("door");    // Send "0" via Bluetooth
+                Toast.makeText(getBaseContext(), "door", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         ArrayList<Entry> entries = new ArrayList<>();
         entries.add(new Entry(4f, 0));
@@ -215,11 +220,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         switch (item.getItemId()) {
             // action with ID action_refresh was selected
             case R.id.action_refresh:
+
                 Toast.makeText(this, "Refresh  selected", Toast.LENGTH_SHORT)
                         .show();
+
                 break;
             // action with ID action_settings was selected
             case R.id.action_settings:

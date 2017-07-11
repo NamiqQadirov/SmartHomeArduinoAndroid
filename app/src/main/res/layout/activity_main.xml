@@ -161,7 +161,7 @@
         android:layout_alignEnd="@+id/light_seek"
         android:layout_alignStart="@+id/light_seek"
         android:layout_marginBottom="17dp"
-        android:max="255" />
+        android:max="180" />
 
     <TextView
         android:id="@+id/lightening"

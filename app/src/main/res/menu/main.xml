@@ -6,7 +6,7 @@
         android:id="@+id/action_refresh"
         android:orderInCategory="100"
         app:showAsAction="always"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/refresh"
         android:title="Refresh"/>
     <item
         android:id="@+id/action_settings"
