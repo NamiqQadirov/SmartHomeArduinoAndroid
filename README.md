@@ -16,3 +16,4 @@ Digital pin 11       -----> RX pin of HC-05 </br>
 Digital pin 10       -----> TX pin of HC-05</br>
 
 if you have a question or you want to be contrubitor  <p style="color:rgb(255,0,0);">Please contact with me</p> ( my email is javanamiq@gmail.com).
+<font color="red">This is some text!</font>
