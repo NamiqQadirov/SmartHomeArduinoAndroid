@@ -15,5 +15,4 @@ Digital pin 4        -----> LED 2 (indicates door solenoid or relay)</br>
 Digital pin 11       -----> RX pin of HC-05 </br>
 Digital pin 10       -----> TX pin of HC-05</br>
 
-if you have a question or you want to be contrubitor  <p style="color:rgb(255,0,0);">Please contact with me</p> ( my email is javanamiq@gmail.com).
-<font color="red">This is some text!</font>
+if you have a question or you want to be contrubitor Please contact with me !!! ( my email is javanamiq@gmail.com).
