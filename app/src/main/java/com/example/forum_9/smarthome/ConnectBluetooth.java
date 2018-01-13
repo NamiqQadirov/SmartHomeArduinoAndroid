@@ -19,38 +19,36 @@ import java.util.ArrayList;
 import java.util.Set;
 
 public class ConnectBluetooth extends AppCompatActivity {
-    ProgressDialog progress;
+    private ProgressDialog progress;
     private BluetoothAdapter myBluetooth = null;
     private Set<BluetoothDevice> pairedDevices;
-    public static String EXTRA_ADDRESS = "device_address";
-ListView listView;
+    static String EXTRA_ADDRESS = "device_address";
+    private ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.connect_bluetooth);
-        listView=(ListView)findViewById(R.id.paired_devices);
+        listView = (ListView) findViewById(R.id.paired_devices);
         myBluetooth = BluetoothAdapter.getDefaultAdapter();
     }
+
     @Override
-    public  void onResume(){
+    public void onResume() {
         super.onResume();
         checkBTState();
         pairedDevices = myBluetooth.getBondedDevices();
         ArrayList list = new ArrayList();
 
-        if (pairedDevices.size()>0)
-        {
-            for(BluetoothDevice bt : pairedDevices)
-            {
+        if (pairedDevices.size() > 0) {
+            for (BluetoothDevice bt : pairedDevices) {
                 list.add(bt.getName() + "\n" + bt.getAddress()); //Get the device's name and the address
             }
-        }
-        else
-        {
+        } else {
             Toast.makeText(getApplicationContext(), "No Paired Bluetooth Devices Found.", Toast.LENGTH_LONG).show();
         }
 
-        final ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, list);
+        final ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, list);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(mDeviceClickListener); //Method called when the device from the list is clicked
 
@@ -73,17 +71,18 @@ ListView listView;
 
         }
     };
+
     private void checkBTState() {
         // Check device has Bluetooth and that it is turned on
-        myBluetooth= BluetoothAdapter.getDefaultAdapter(); // CHECK THIS OUT THAT IT WORKS!!!
-        if(myBluetooth==null) {
+        myBluetooth = BluetoothAdapter.getDefaultAdapter(); // CHECK THIS OUT THAT IT WORKS!!!
+        if (myBluetooth == null) {
             Toast.makeText(getBaseContext(), "Device does not support Bluetooth", Toast.LENGTH_SHORT).show();
         } else {
-            if (myBluetooth.isEnabled()) {
-            } else {
+            if (!myBluetooth.isEnabled()) {
                 //Prompt user to turn on Bluetooth
                 Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
                 startActivityForResult(enableBtIntent, 1);
+            } else {
             }
         }
     }

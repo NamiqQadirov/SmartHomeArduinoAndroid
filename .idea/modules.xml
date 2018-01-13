@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SmartHome.iml" filepath="$PROJECT_DIR$/SmartHome.iml" />
+      <module fileurl="file://C:\namiq\TestApps\SmartHomeArduinoAndroid\SmartHome.iml" filepath="C:\namiq\TestApps\SmartHomeArduinoAndroid\SmartHome.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SmartHomeArduinoAndroid.iml" filepath="$PROJECT_DIR$/SmartHomeArduinoAndroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\namiq\TestApps\SmartHomeArduinoAndroid\app\app.iml" filepath="C:\namiq\TestApps\SmartHomeArduinoAndroid\app\app.iml" />
     </modules>
   </component>
 </project>
