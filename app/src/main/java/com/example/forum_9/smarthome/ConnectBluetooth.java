@@ -1,13 +1,11 @@
 package com.example.forum_9.smarthome;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -29,7 +27,7 @@ public class ConnectBluetooth extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.connect_bluetooth);
-        listView = (ListView) findViewById(R.id.paired_devices);
+        listView = findViewById(R.id.paired_devices);
         myBluetooth = BluetoothAdapter.getDefaultAdapter();
     }
 
@@ -38,7 +36,7 @@ public class ConnectBluetooth extends AppCompatActivity {
         super.onResume();
         checkBTState();
         pairedDevices = myBluetooth.getBondedDevices();
-        ArrayList list = new ArrayList();
+        ArrayList<String> list = new ArrayList<>();
 
         if (pairedDevices.size() > 0) {
             for (BluetoothDevice bt : pairedDevices) {
@@ -48,7 +46,7 @@ public class ConnectBluetooth extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "No Paired Bluetooth Devices Found.", Toast.LENGTH_LONG).show();
         }
 
-        final ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, list);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(mDeviceClickListener); //Method called when the device from the list is clicked
 
@@ -82,7 +80,6 @@ public class ConnectBluetooth extends AppCompatActivity {
                 //Prompt user to turn on Bluetooth
                 Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
                 startActivityForResult(enableBtIntent, 1);
-            } else {
             }
         }
     }
